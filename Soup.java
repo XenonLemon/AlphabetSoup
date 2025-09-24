@@ -1,3 +1,7 @@
+//Name: Peter Daniel
+//9/24/25
+//This program will produce a "soup" that will contain specific letters to spell out specific words.
+
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -27,15 +31,20 @@ public class Soup {
 
 //below are the functions you'll be writing.
 
+//precondition: word cannot be null
+//postcondition: adds the letters specified in "word" into "letters"
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-
+        letters += word;
     }
 
-
+//precondition: letters must have a word inside of it
+//postcondition: using indexing, a random letter will be pulled from letters.
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+        int randomIndex = (int)(Math.random() * letters.length());
+        randomLetter = letters.substring(randomIndex, randomIndex+1);
+        return randomLetter;
     }
 
 
