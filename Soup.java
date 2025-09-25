@@ -41,17 +41,23 @@ public class Soup {
 //precondition: letters must have a word inside of it
 //postcondition: using indexing, a random letter will be pulled from letters.
     //Use Math.random() to get a random character from the letters string and return it.
-    public char randomLetter(){
+    public String randomLetter(){
         int randomIndex = (int)(Math.random() * letters.length());
-        randomLetter = letters.substring(randomIndex, randomIndex+1);
+        String randomLetter = letters.substring(randomIndex, randomIndex+1);
         return randomLetter;
     }
 
-
+//precondition: there should be a company name stored in a string titled company
+//postcondition: using indexing and substring, the word will have the company name placed in the middle of the word. 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        
+        int centerIndex = (int)(letters.length() / 2);
+        
+        String companyCentered = letters.substring(0, centerIndex) +  company; 
+        String latterHalf = letters.substring(centerIndex);
+        return companyCentered + latterHalf;
     }
 
 
@@ -62,7 +68,8 @@ public class Soup {
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
-
+        int randomSub = (int)(Math.random() * (letters.length()-num));
+        letters = letters.substring(randomSub);
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
