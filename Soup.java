@@ -60,11 +60,14 @@ public class Soup {
         return companyCentered + latterHalf;
     }
 
-
+//precondition: there should be vowels inside the word that was given.
+//postcondition: the first vowel located in the word will be taken out.
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
         letters = letters.replaceFirst("[AEIOUaeiou]", "");
     }
+//preconditon: a word must be given, and a number must be given when typing the "removeSome" command
+//postcondition; a random amount of letters will be removed from the word. 
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
@@ -72,9 +75,11 @@ public class Soup {
         letters = letters.substring(0, randomSub) + letters.substring(randomSub + num);
         return;
     }
+//precondition: there must be a word stored in the string letters, and when typing the "removeSome" command, you need to type a word to remove along side the command.
+//postconditon: the word will be taken out of the letters string
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
     public void removeWord(String word){
-        
+        letters = letters.replaceFirst(word, "");
     }
 }
